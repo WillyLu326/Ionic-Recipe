@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Ingredient } from '../model/ingredient';
 
+import * as _ from 'lodash';
+
 @Injectable()
 export class ShoppingListService {
 
@@ -12,11 +14,12 @@ export class ShoppingListService {
     }
 
     addIngredients(ingredients: Ingredient[]): Ingredient[] {
-        
+        this.ingredients = _.concat(this.ingredients, ingredients);
+        return this.ingredients;
     }
 
-    editIngredient(name: string): Ingredient {
-
+    editIngredient(name: string): Ingredient[] {
+        
     }
 
     removeIngredient(name: string): Ingredient[] {
