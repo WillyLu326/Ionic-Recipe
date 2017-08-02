@@ -8,14 +8,12 @@ export class ShoppingListService {
 
     private ingredients: Ingredient[] = [];
 
-    addOneIngredient(ingredient: Ingredient): Ingredient[] {
+    addOneIngredient(ingredient: Ingredient): void {
         this.ingredients.push(ingredient);
-        return this.ingredients;
     }
 
-    addIngredients(ingredients: Ingredient[]): Ingredient[] {
+    addIngredients(ingredients: Ingredient[]): void {
         this.ingredients = _.concat(this.ingredients, ingredients);
-        return this.ingredients;
     }
 
     editIngredient(name: string): Ingredient[] {
@@ -27,11 +25,12 @@ export class ShoppingListService {
     }
 
     getAllIngredients(): Ingredient[] {
-
+        return this.ingredients;
     }
 
     getIngredient(name: string): Ingredient {
-
+        let ingredient: Ingredient = _.filter(this.ingredients, ingredient => ingredient.name === name);
+        return ingredient;
     }
 
 }
