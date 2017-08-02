@@ -4,12 +4,7 @@ import { NgForm } from '@angular/forms';
 
 import { ShoppingListService } from '../../services/shopping-list.service';
 
-/**
- * Generated class for the ShoppingListPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { Ingredient } from '../../model/ingredient';
 
 @IonicPage()
 @Component({
@@ -17,6 +12,8 @@ import { ShoppingListService } from '../../services/shopping-list.service';
   templateUrl: 'shopping-list.html',
 })
 export class ShoppingListPage {
+
+  private ingredients: Ingredient[];
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -30,6 +27,7 @@ export class ShoppingListPage {
   onAddItem(form: NgForm) {
     this.shoppingListService.addOneIngredient(form.value);
     form.reset();
+    this.ingredients = this.shoppingListService.getAllIngredients();
   }
 
 }
