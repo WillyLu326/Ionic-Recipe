@@ -20,8 +20,10 @@ export class ShoppingListService {
         
     }
 
-    removeIngredient(name: string): Ingredient[] {
-
+    removeIngredient(name: string) {
+        let ingredient: Ingredient = _.filter(this.ingredients, ingredient => ingredient.name === name);
+        let index = _.indexOf(this.ingredients, ingred => ingred === ingredient);
+        this.ingredients.splice(index, 1);
     }
 
     getAllIngredients(): Ingredient[] {
