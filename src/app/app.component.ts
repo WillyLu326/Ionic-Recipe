@@ -9,7 +9,7 @@ import { TabPage } from '../pages/tab/tab';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabPage;
+  rootPage: any = TabPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
