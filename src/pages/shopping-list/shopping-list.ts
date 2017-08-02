@@ -20,7 +20,7 @@ export class ShoppingListPage {
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-              public shoppingListService: ShoppingListService) {
+              private shoppingListService: ShoppingListService) {
   }
 
   ionViewDidLoad() {
@@ -29,6 +29,7 @@ export class ShoppingListPage {
 
   onAddItem(form: NgForm) {
     this.shoppingListService.addOneIngredient(form.value);
+    form.reset();
   }
 
 }
