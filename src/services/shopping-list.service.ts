@@ -16,8 +16,10 @@ export class ShoppingListService {
         this.ingredients = _.concat(this.ingredients, ingredients);
     }
 
-    editIngredient(name: string): Ingredient[] {
-        
+    editIngredient(name: string, newIngredient: Ingredient) {
+        let ingredient: Ingredient = _.filter(this.ingredients, ingredient => ingredient.name === name);
+        let index = _.indexOf(this.ingredients, ingred => ingred === ingredient);
+        this.ingredients.splice(index, 1, newIngredient);
     }
 
     removeIngredient(name: string) {
