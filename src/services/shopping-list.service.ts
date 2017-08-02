@@ -4,12 +4,15 @@ import { Ingredient } from '../model/ingredient';
 @Injectable()
 export class ShoppingListService {
 
-    addOneIngredient(): Ingredient[] {
+    private ingredients: Ingredient[] = [];
 
+    addOneIngredient(ingredient: Ingredient): Ingredient[] {
+        this.ingredients.push(ingredient);
+        return this.ingredients;
     }
 
-    addIngredients(): Ingredient[] {
-
+    addIngredients(ingredients: Ingredient[]): Ingredient[] {
+        
     }
 
     editIngredient(name: string): Ingredient {
@@ -25,7 +28,7 @@ export class ShoppingListService {
     }
 
     getIngredient(name: string): Ingredient {
-        
+
     }
 
 }
