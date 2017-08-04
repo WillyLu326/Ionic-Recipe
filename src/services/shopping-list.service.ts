@@ -22,9 +22,8 @@ export class ShoppingListService {
         this.ingredients.splice(index, 1, newIngredient);
     }
 
-    removeIngredient(name: string) {
-        let ingredient: Ingredient = _.filter(this.ingredients, ingredient => ingredient.name === name);
-        let index = _.indexOf(this.ingredients, ingred => ingred === ingredient);
+    removeIngredient(ingredient: Ingredient) {
+        let index = _.indexOf(this.ingredients, ingredient);
         this.ingredients.splice(index, 1);
     }
 

@@ -35,8 +35,8 @@ export class ShoppingListPage {
     this.ingredients = this.shoppingListService.getAllIngredients();
   }
 
-  onDelete(name: string) {
-    this.shoppingListService.removeIngredient(name);
+  onDelete(ingredient: Ingredient) {
+    this.shoppingListService.removeIngredient(ingredient);
     this.ingredients = this.shoppingListService.getAllIngredients();
   }
 
