@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
+import { trigger } from '@angular/animations';
 
 import { ShoppingListService } from '../../services/shopping-list.service';
 
