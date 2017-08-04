@@ -24,6 +24,11 @@ export class ShoppingListPage {
     console.log('ionViewDidLoad ShoppingListPage');
   }
 
+  ionViewWillEnter() {
+    //this.ingredients = this.shoppingListService.getAllIngredients();
+    console.log('ionViewWillEnter ShoppingListPage');
+  }
+
   onAddItem(form: NgForm) {
     this.shoppingListService.addOneIngredient(form.value);
     form.reset();

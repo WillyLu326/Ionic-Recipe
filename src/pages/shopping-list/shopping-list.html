@@ -11,7 +11,7 @@
     <ion-list>
       <ion-item>
         <ion-label fixed>Name</ion-label>
-        <ion-input type="text" name="ingredientName" placeholder="Milk" ngModel required></ion-input>
+        <ion-input type="text" name="name" placeholder="Milk" ngModel required></ion-input>
       </ion-item>
 
       <ion-item>
@@ -24,7 +24,11 @@
     </button>
   </form>
 
-  
+  <ion-list>
+    <ion-item *ngFor="let ingredient of ingredients">
+      <h3>{{ ingredient.name }} ({{ ingredient.amount }})</h3>
+    </ion-item>
+  </ion-list>
 
 
 </ion-content>
