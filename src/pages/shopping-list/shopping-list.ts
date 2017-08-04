@@ -1,16 +1,34 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
-import { trigger } from '@angular/animations';
+import { trigger, transition, animate, style } from '@angular/animations';
 
 import { ShoppingListService } from '../../services/shopping-list.service';
 
 import { Ingredient } from '../../model/ingredient';
+import 'web-animations-js/web-animations.min';
 
 @IonicPage()
 @Component({
   selector: 'page-shopping-list',
   templateUrl: 'shopping-list.html',
+  animations: [
+    trigger('myAnimation', [
+      transition(
+        ':enter', [
+          style({ opacity: 0 }),
+          animate('600ms ease-in-out', style({ opacity: 1 }))
+        ]
+      ),
+      transition(
+        ':leave', [
+          style({ opacity: 1 }),
+          animate('600ms ease-in-out', style({ opacity: 0 }))
+        ]
+      )
+    ])
+    
+  ]
 })
 export class ShoppingListPage {
 

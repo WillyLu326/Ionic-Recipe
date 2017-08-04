@@ -24,13 +24,8 @@
     </button>
   </form>
 
-<button ion-button icon-left>
-            <ion-icon name="star"></ion-icon>
-            Left Icon
-          </button>
-
   <ion-list>
-    <ion-item-sliding *ngFor="let ingredient of ingredients">
+    <ion-item-sliding [@myAnimation] *ngFor="let ingredient of ingredients">
         <ion-item>
           <h3>{{ ingredient.name }} ({{ ingredient.amount }})</h3>
         </ion-item>
