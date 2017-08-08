@@ -19,8 +19,9 @@
       </ion-item>
 
       <ion-item>
-        <ion-select interface="popover">
-          <ion-option *ngFor="let option of options" value="{{option}}">{{ option }}</ion-option>
+        <ion-select interface="popover" [(ngModel)]="selectedOption" name="null"
+                    (ionChange)="onChangeSelect()">
+          <ion-option *ngFor="let option of options">{{ option }}</ion-option>
         </ion-select>
       </ion-item>
     </ion-list>

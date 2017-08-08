@@ -24,4 +24,8 @@ export class EditRecipePage implements OnInit {
     console.log('ionViewDidLoad EditRecipePage');
   }
 
+  onChangeSelect() {
+    console.log(this.selectedOption);
+  }
+
 }
