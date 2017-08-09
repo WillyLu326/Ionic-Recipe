@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, Platform } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -17,7 +17,8 @@ export class EditRecipePage implements OnInit {
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-              public actionSheetCtrl: ActionSheetController) {
+              public actionSheetCtrl: ActionSheetController,
+              public platform: Platform) {
   }
 
   ngOnInit() {
@@ -38,25 +39,51 @@ export class EditRecipePage implements OnInit {
   }
 
   onManageIngredients() {
-    let actionSheet = this.actionSheetCtrl.create({
-      title: 'What do you want to do?',
-      buttons: [
-        {
-          text: 'Add',
-          handler: () => {}
-        },
-        {
-          text: 'Remove All',
-          role: 'destructive',
-          handler: () => {}
-        },
-        {
-          text: 'Cancel',
-          role: 'cencel',
-          handler: () => {}
-        }
-      ]
-    });
+    let actionSheet: any;
+    if (this.platform.is('android')) {
+      actionSheet = this.actionSheetCtrl.create({
+        title: 'What do you want to do?',
+        buttons: [
+          {
+            text: 'Add',
+            icon: 'add',
+            handler: () => {}
+          },
+          {
+            text: 'Remove All',
+            icon: 'trash',
+            role: 'destructive',
+            handler: () => {}
+          },
+          {
+            text: 'Cancel',
+            icon: 'close',
+            role: 'cencel',
+            handler: () => {}
+          }
+        ]
+      });
+    } else if (this.platform.is('ios')) {
+      actionSheet = this.actionSheetCtrl.create({
+        title: 'What do you want to do?',
+        buttons: [
+          {
+            text: 'Add',
+            handler: () => {}
+          },
+          {
+            text: 'Remove All',
+            role: 'destructive',
+            handler: () => {}
+          },
+          {
+            text: 'Cancel',
+            role: 'cencel',
+            handler: () => {}
+          }
+        ]
+      });
+    }
 
     actionSheet.present();
   }
