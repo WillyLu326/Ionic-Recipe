@@ -25,7 +25,7 @@
       </ion-item>
     </ion-list>
 
-    <button ion-button clear block> Manage Ingredients </button>
+    <button ion-button clear block (click)="onManageIngredients()"> Manage Ingredients </button>
 
     <button ion-button icon-left block [disabled]="!recipeForm.valid"> 
       <ion-icon name="add"></ion-icon> {{ mode }} Recipe 

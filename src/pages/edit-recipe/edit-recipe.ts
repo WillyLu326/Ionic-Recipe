@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -15,7 +15,9 @@ export class EditRecipePage implements OnInit {
   options: string[] = ['Easy', 'Medium', 'Hard'];
   defaultOption: string = 'Easy';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public actionSheetCtrl: ActionSheetController) {
   }
 
   ngOnInit() {
@@ -33,6 +35,10 @@ export class EditRecipePage implements OnInit {
 
   onSubmit() {
     console.log(this.recipeForm);
+  }
+
+  onManageIngredients() {
+    
   }
 
   private initializeForm() {
