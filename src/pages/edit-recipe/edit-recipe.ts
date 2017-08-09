@@ -20,6 +20,7 @@ export class EditRecipePage implements OnInit {
 
   ngOnInit() {
     this.mode = this.navParams.get('mode')
+    this.initializeForm();
   }
 
   ionViewDidLoad() {
@@ -30,11 +31,15 @@ export class EditRecipePage implements OnInit {
     
   }
 
+  onSubmit() {
+    console.log(this.recipeForm);
+  }
+
   private initializeForm() {
     this.recipeForm = new FormGroup({
       title: new FormControl(null, Validators.required),
       description: new FormControl(null, Validators.required),
-      difficulty: new FormControl(this.defaultOption, Validators.required);
+      difficulty: new FormControl(this.defaultOption, Validators.required)
     })
   }
 

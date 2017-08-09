@@ -8,18 +8,18 @@
 
 
 <ion-content padding>
-  <form>
+  <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
     <ion-list>
       <ion-item>
-        <ion-input type="text" placeholder="Name"></ion-input>
+        <ion-input type="text" placeholder="Name" formControlName="title"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-textarea type="text" placeholder="Description"></ion-textarea>
+        <ion-textarea type="text" placeholder="Description" formControlName="description"></ion-textarea>
       </ion-item>
 
       <ion-item>
-        <ion-select interface="popover" (ionChange)="onChangeSelect()">
+        <ion-select interface="popover" formControlName="difficulty" (ionChange)="onChangeSelect()">
           <ion-option *ngFor="let option of options">{{ option }}</ion-option>
         </ion-select>
       </ion-item>
