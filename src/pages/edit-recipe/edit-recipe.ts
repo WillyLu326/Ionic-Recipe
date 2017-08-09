@@ -30,6 +30,14 @@ export class EditRecipePage implements OnInit {
   }
 
   onChangeSelect() {
+    
+  }
+
+  onSubmit() {
+    console.log(this.recipeForm);
+  }
+
+  onManageIngredients() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'What do you want to do?',
       buttons: [
@@ -51,14 +59,6 @@ export class EditRecipePage implements OnInit {
     });
 
     actionSheet.present();
-  }
-
-  onSubmit() {
-    console.log(this.recipeForm);
-  }
-
-  onManageIngredients() {
-    
   }
 
   private initializeForm() {
