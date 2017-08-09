@@ -30,7 +30,27 @@ export class EditRecipePage implements OnInit {
   }
 
   onChangeSelect() {
-    
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'What do you want to do?',
+      buttons: [
+        {
+          text: 'Add',
+          handler: () => {}
+        },
+        {
+          text: 'Remove All',
+          role: 'destructive',
+          handler: () => {}
+        },
+        {
+          text: 'Cancel',
+          role: 'cencel',
+          handler: () => {}
+        }
+      ]
+    });
+
+    actionSheet.present();
   }
 
   onSubmit() {
