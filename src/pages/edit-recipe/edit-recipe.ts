@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
@@ -9,9 +10,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class EditRecipePage implements OnInit {
 
   mode: string;
+  recipeForm: FormGroup;
 
   options: string[] = ['Easy', 'Medium', 'Hard'];
-  selectedOption: string = 'Easy';
+  defaultOption: string = 'Easy';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -25,7 +27,15 @@ export class EditRecipePage implements OnInit {
   }
 
   onChangeSelect() {
-    console.log(this.selectedOption);
+    
+  }
+
+  private initializeForm() {
+    this.recipeForm = new FormGroup({
+      title: new FormControl(null, Validators.required),
+      description: new FormControl(null, Validators.required),
+      difficulty: new FormControl(this.defaultOption, Validators.required);
+    })
   }
 
 }
